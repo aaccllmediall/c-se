@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void printNum(int );
+void printNum(int );    // faltaba declararlo en el inicio //
 
 main()
 {
