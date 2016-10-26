@@ -46,12 +46,23 @@ PointArray::PointArray(const PointArray& pv){
     }
 }
 void PointArray::push_back(const Point &p){
+    this->points=p[size+1];
 }
 void PointArray::insert(const int position, const Point &p){
+    this->points=p[size+1];
+    int j=0;
+    for (int i=0; i<size; i++){
+        if (i==position-1)
+            j++;
+        p[j]=p[i];
+        j++;
+    }
+    p[position-1]=NULL;
+}
+void PointArray::remove(const int pos){
+    
 }
 
 PointArray::~PointArray(){
     delete[] points;
 }
-
-
