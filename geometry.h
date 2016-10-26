@@ -10,7 +10,6 @@ class Point
         int getY() const;
         void setX(const int new_x);
         void setY(const int new_y);
-
         virtual ~Point();
 
     private:
