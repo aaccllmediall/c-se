@@ -71,6 +71,10 @@ void PointArray::remove(const int pos){
 const int PointArray::getSize() const {
     return size;
 }
+void PointArray::clear(){
+    delete[] points;
+    Point new points[0];
+}
 
 PointArray::~PointArray(){
     delete[] points;
