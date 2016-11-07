@@ -14,7 +14,11 @@ using namespace std;
 int cuerpo[200][2];
 int n=1;
 int tam=3;
+int dir=3;
 int x=10, y=12;
+int xc=30, yc=15;
+int vel=100, h=1;
+int score=0;
 char tecla;
 
 void gotoxy(int x, int y)
@@ -69,15 +73,95 @@ void borcue()
 
 }
 
+void teclear()
+{
+   if (kbhit()){
+        tecla=getch();
+        switch(tecla){
+            case ARRIBA:
+                if (dir!=2){
+                    dir=1;
+                    break;
+                }
+            case ABAJO:
+                if (dir!=1){
+                    dir=2;
+                    break;
+                }
+            case DERECHA:
+                if (dir!=4){
+                    dir=3;
+                    break;
+                }
+            case IZQUIERDA:
+                if (dir!=3){
+                    dir=4;
+                    break;
+                }
+        }
+    } 
+}
+
+void comida()
+{
+    if (x==xc && y==yc){
+        xc=(rand()%73)+4;
+        yc=(rand()%19)+4;
+        tam++;
+        score+=10;  //fijate en la velocidad //
+        gotoxy(xc, yc);
+        cout << "*" << endl;
+        veloci();
+    }
+}
+
+bool gaver()
+{
+    if (y==3 || y==23 || x==2 || x== 77)
+        return False;
+    else
+        return True;
+    for (int j=tam-1; j>0; j--)
+        if (cuerpo[j][0]==x && cuerpo[j][1]==y)
+            return False;
+}
+
+void punt()
+{
+    gotoxy(3, 1);
+    cout << "SCORE:" << score << endl;
+}
+
+void veloci()
+{
+    if (score==h*20){
+        vel-=10;
+        h++;
+    }
+}
+
 int main()
 {
     pintar();
-    while (tecla!=ESC){
+    gotoxy(xc, yc);
+    cout << "+" << endl;
+    while (tecla!=ESC || gaver()){
         borcue();
         guarpos();
         pintcue();
-        x++;
-        Sleep(100);
+        comida();
+        punt();
+        teclear();
+        teclear();
+        if (dir==1)
+            y--;
+        if (dir==2)
+            y++;
+        if (dir==3)
+            x++;
+        if (dir==4)
+            x--;
+        Sleep(vel);
     }
     system("pause>NULL");
     return 0;
