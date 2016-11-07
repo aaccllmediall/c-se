@@ -57,7 +57,7 @@ void PointArray::insert(const int position, const Point &p){
         p[j]=p[i];
         j++;
     }
-    p[position-1]=NULL;
+    p[position-1]=0;
 }
 void PointArray::remove(const int pos){
     int j=0;
@@ -66,14 +66,14 @@ void PointArray::remove(const int pos){
             j--;
         points[j]=points[i];
     }
-    points[size-1]=NULL;
+    points[size-1]=0;
 }
 const int PointArray::getSize() const {
     return size;
 }
 void PointArray::clear(){
     delete[] points;
-    Point new points[0];
+    new Point[0];
 }
 
 PointArray::~PointArray(){
