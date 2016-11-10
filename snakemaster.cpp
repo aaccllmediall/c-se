@@ -120,13 +120,17 @@ void comida()
 
 int gaver()
 {
-    if (y==3 || y==23 || x==2 || x== 77)
+    if (y==3 || y==23 || x==2 || x== 77){
+		printf("\a");
         return 0;
+    }
     else
         return 1;
     for (int j=tam-1; j>0; j--)
-        if (cuerpo[j][0]==x && cuerpo[j][1]==y)
+        if (cuerpo[j][0]==x && cuerpo[j][1]==y){
+            printf("\a");
             return 0;
+        }
 }
 
 void punt()
