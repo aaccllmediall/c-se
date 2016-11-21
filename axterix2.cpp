@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <windows.h>
 #include <iostream>
 #include <conio.h>
 #include <stdio.h>
