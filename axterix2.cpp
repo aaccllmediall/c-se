@@ -106,7 +106,7 @@ void jugar(void)
 	gotoxy(xb+3, iy+dd);
     printf("|");
 	
-	gotoxy(x, y);
+    gotoxy(x, y);
     printf("%c", 2);
     gotoxy(xx, yy);
     printf("%c", 2);
